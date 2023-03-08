@@ -16,5 +16,4 @@ class Book
   def rent(person, date)
     Rental.new(person, self, date)
   end
-  
 end
