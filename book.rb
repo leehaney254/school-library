@@ -1,15 +1,20 @@
 require './rental'
 
 class Book
-  attr_accessor :title, :author, :rentnals
+  attr_accessor :title, :author, :rentals
 
   def initialize(title, author)
     @title = title
     @author = author
-    @rentnals = []
+    @rentals = []
   end
 
   def add_rented(rental)
-    @rentnals << rental
+    @rentals << rental
   end
+
+  def rent(person, date)
+    Rental.new(person, self, date)
+  end
+  
 end
