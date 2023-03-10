@@ -61,7 +61,7 @@ def option_create_rental
     return
   end
   person_no = gets.chomp
-  print 'Date: '
+  print 'Date: dd/mm/yyyy'
   date = gets.chomp
   create_rental(person_no, book_no, date)
   puts 'Rental created sucessfully'
