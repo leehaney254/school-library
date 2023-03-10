@@ -73,7 +73,9 @@ class App
   def list_rental(id)
     book_rent = ''
     @rentals.each do |rental|
-      book_rent = "#{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author} \n" if id.to_i == rental.person.id
+      if id.to_i == rental.person.id
+        book_rent += "#{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author} \n"
+      end
     end
     puts 'There is no rental for the selected id' if book_rent.empty?
     print book_rent
