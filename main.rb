@@ -73,23 +73,27 @@ def option_list_rentals
   list_rental(person_id)
 end
 
+def exit
+  puts 'Thank you for using the library.'
+end
+
+def invalid_option
+  puts 'Kindly enter a valid option'
+end
+
 def parameter_option(parameter)
-  case parameter
-  when '1'
-    list_books
-  when '2'
-    list_people
-  when '3'
-    option_create_person
-  when '4'
-    option_create_book
-  when '5'
-    option_create_rental
-  when '6'
-    option_list_rentals
-  else
-    puts 'Kindly enter a valid option'
-  end
+  options = {
+    '1' => method(:list_books),
+    '2' => method(:list_people),
+    '3' => method(:option_create_person),
+    '4' => method(:option_create_book),
+    '5' => method(:option_create_rental),
+    '6' => method(:option_list_rentals),
+    '7' => method(:exit)
+  }
+
+  option_method = options[parameter] || method(:invalid_option)
+  option_method.call
 end
 
 def main
